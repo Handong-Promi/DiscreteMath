@@ -1,0 +1,50 @@
+<NO.1> Duplicated annotation on same column
+----------------
+5
+A _ _ _ _ 
+A _ _ _ _ 
+_ _ _ _ _ 
+_ _ _ _ _
+
+6
+_ _ _ D _ _
+_ _ _ D _ _
+_ _ _ _ _ _ 
+_ _ _ _ _ _
+
+
+<NO.2> Duplicated annoation on same row
+-----------------
+7
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+A _ _ _ _ _ _
+A _ _ _ _ _ _
+
+8
+_ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ 
+_ _ _ _ C _ _ _ 
+_ _ _ _ C _ _ _ 
+
+<NO.3> Duplicated annotaion on same row and same column
+-----------------
+9
+_ _ C _ _ A _ _ _
+_ _ C _ _ B _ _ _
+_ _ _ D _ _ _ E _
+_ _ _ D _ _ _ A _
+
+<NO.4> crossed annotation over (top or bottom) and (right or left)
+-------------------
+5
+A _ _ _ _
+_ _ _ _ _
+_ _ _ _ _
+A _ _ _ _
+
+5
+_ _ _ _ _
+_ _ _ _ E
+_ _ _ _ E
+_ _ _ _ _
