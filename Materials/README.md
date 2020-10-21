@@ -22,11 +22,8 @@ real-world.
 ### Class policies ###
 [POLICY.md](POLICY.md)
 
-### Midterm practice ###
-* Sample answer sheet: [link](https://github.com/hongshin/DiscreteMath/blob/master/notes/sample-answer.pdf)
-* Sample problem sheet: [link](https://github.com/hongshin/DiscreteMath/blob/master/notes/sample-problem.pdf)
-* Submission site: [link](https://forms.gle/Nxy3expFxhqXHxFF9)
-
+### Midterm 🔔 ###
+* [Answer sheet](https://github.com/hongshin/DiscreteMath/blob/master/notes/answer.pdf)
 
 ### Materials ###
 #### Textbook ####
