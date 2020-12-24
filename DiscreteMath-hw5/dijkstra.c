@@ -27,7 +27,7 @@ void initDistance(int start, int* d, graph_t* g){
 	}
 }
 
-int getSmallIndex(boolean* v, int* d, int n_vertices) {
+int getClosest(boolean* v, int* d, int n_vertices) {
 	int min = INF;
 	int index = 0;
 	for(int i = 0; i < n_vertices; i++) {
@@ -39,21 +39,20 @@ int getSmallIndex(boolean* v, int* d, int n_vertices) {
 	return index;
 } 
 
-int n_vertices ;
-int ** m ;
-int *** w ;
+int* dijkstra(int start, int end, graph_t* g) {
 
-int dijkstra(int start, int end, graph_t* g) {
-
-	boolean *v = (boolean*) calloc(g->n_vertices, sizeof(int)); // visited node -> "is it visited?""
-	int *d = (int*) calloc(g->n_vertices, sizeof(int)); // shortest length of the path from starting node to ending node -> "weight"
-
+	// visited node -> "is it visited?"
+	boolean *v = (boolean*) calloc(g->n_vertices, sizeof(int)); 
+	// shortest length of the path from starting node to ending node -> "weight"
+	int *d = (int*) calloc(g->n_vertices, sizeof(int));
+	
 	initDistance(start, d, g);
 
 	v[start] = TRUE;
 
 	for(int i = 0; i < g->n_vertices - 2; i++) {
-		int current = getSmallIndex(v, d, g->n_vertices);
+		if(v[end] == TRUE) break;
+		int current = getClosest(v, d, g->n_vertices);
 		//printf("i: %d, current: %d\n", i, current);
 		v[current] = TRUE;
 		for(int j = 0; j < g->n_vertices; j++) {
@@ -80,7 +79,7 @@ int dijkstra(int start, int end, graph_t* g) {
 		*/
 	}
 	free(v);
-	free(d);
+	
 
 	/*
 	char s1[10];
@@ -88,8 +87,8 @@ int dijkstra(int start, int end, graph_t* g) {
 	printf("d[end] -> d[%d]: %s\n", end, d[end]==INF ? "INF" : s1);
 	*/
 
-	if(d[end] == INF) return -1;
-	else return d[end];
+	if(d[end] == INF) return 0x0;
+	else return d;
 }
 
 int
@@ -115,10 +114,11 @@ main (int argc, char ** args)
 		return 1 ;
 	}
 
-	int result = dijkstra(start, end, g);
+	int*  result = dijkstra(start, end, g);
 	
-	if(result >= 0) printf("start vertex: %d, end vertex: %d => length of shortest path: %d", start, end, result);
-
+	if(result!=0x0) printf("%d\n", result[end]);
+	
+	free(result);
 	graph_free(g) ;
 	return 0 ;
 }
